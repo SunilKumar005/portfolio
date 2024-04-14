@@ -104,7 +104,7 @@ const ContactMe = () => {
           </div>
           <div style={styles.contactText}>
             <h2 style={styles.head}>Email Me</h2>
-            <p style={styles.para}>sunilkumar005@gmail.com</p>
+            <p style={styles.para}>sunilkmar005@gmail.com</p>
           </div>
         </div>
       </div>

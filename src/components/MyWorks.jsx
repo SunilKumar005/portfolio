@@ -1,6 +1,8 @@
 import React,{useRef} from 'react';
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 import { useInView } from 'react-intersection-observer';
+import "./css/styles.scss";
+
 const MyWorks = () => {
   function useParallax(value: MotionValue<number>, distance: number) {
     return useTransform(value, [0, 1], [-distance, distance]);

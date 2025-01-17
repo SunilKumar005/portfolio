@@ -22,7 +22,7 @@ function App() {
     <>
      <motion.div
         className="progress-bar"
-        style={{ scaleX}}
+        style={{ zIndex:10,scaleX}}
       />
       <Header name="SUNIL KUMAR S" />
       <Slides />

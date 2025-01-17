@@ -2,6 +2,8 @@ import React from 'react';
 import { FaPhone, FaEnvelope, FaWhatsapp, FaTelegram, FaInstagram } from 'react-icons/fa';
 import { motion} from "framer-motion";
 import { useInView } from 'react-intersection-observer';
+import "./css/styles.scss";
+
 const ContactMe = () => {
     const { ref, inView } = useInView({
         triggerOnce: false,

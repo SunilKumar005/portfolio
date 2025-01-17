@@ -3,6 +3,9 @@ import { FaJava, FaPython, FaCode, FaTerminal, FaDatabase, FaCodeBranch, FaRobot
 import { SiCplusplus } from 'react-icons/si';
 import { motion} from "framer-motion";
 import { useInView } from 'react-intersection-observer';
+import "./css/styles.scss";
+
+
 const Skills = () => {
   const { ref, inView } = useInView({
       triggerOnce: false,
@@ -19,16 +22,20 @@ const Skills = () => {
       <h1>My Skills</h1>
       <div style={styles.grid}>
         <div style={styles.skill}>
-          <FaRobot style={styles.logo} />
-          <p style={styles.text}>Machine Learning</p>
-        </div>
-        <div style={styles.skill}>
           <FaLaptopCode style={styles.logo} />
           <p style={styles.text}>FullStack Development</p>
         </div>
         <div style={styles.skill}>
           <FaShieldAlt style={styles.logo} />
           <p style={styles.text}>Penetration Testing</p>
+        </div>
+        <div style={styles.skill}>
+          <FaDatabase style={styles.logo} />
+          <p style={styles.text}>Data Science</p>
+        </div>
+        <div style={styles.skill}>
+          <FaRobot style={styles.logo} />
+          <p style={styles.text}>Machine Learning</p>
         </div>
         <div style={styles.skill}>
           <FaJava style={styles.logo} />
@@ -54,10 +61,7 @@ const Skills = () => {
           <FaCodeBranch style={styles.logo} />
           <p style={styles.text}>Git</p>
         </div>
-        <div style={styles.skill}>
-          <FaDatabase style={styles.logo} />
-          <p style={styles.text}>Data Science</p>
-        </div>
+        
       </div>
     </div>
     </motion.div>

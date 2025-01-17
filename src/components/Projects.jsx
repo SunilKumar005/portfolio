@@ -6,7 +6,7 @@ const Projects = () => {
   return (
     <div style={styles.container}>
       <h1 style={styles.title}>My Projects</h1>
-      {[...Array(4)].map((_, index) => (
+      {[...Array(6)].map((_, index) => (
         <Project index={index} />
       ))}
     </div>
@@ -27,8 +27,20 @@ const Project = ({ index, title, description }) => {
   };
   const projects = [
     {
+      name: "Hudi Bootstrapping Utility",
+      description: "A Full-stack application for bootstrapping Hudi tables using Parquet/ORC data, with FastAPI backend and React frontend. Implemented features to track transaction history, monitor operation status, and validate HDFS directories/Hive tables. Integrated real-time progress updates via WebSocket and used PySpark for data processing, with PostgreSQL for transaction storage.",
+      technologies: "Python, PySpark , React, FastAPI, Hudi, Hive, HDFS, PostgreSQL.",
+      link: "https://github.com/SunilKumar005/Hudi_utility"
+    },
+    {
+      name: "Invertible Image Compression",
+      description: "Developed an image compression model using invertible neural networks (INNs) and wavelet transforms to achieve reversible compression, preserving high-frequency details and minimizing loss for high-quality restoration. Optimized compression efficiency while maintaining image fidelity for various use cases.",
+      technologies: "PyTorch, Numpy, PyWavelets, Python.",
+      link: "https://github.com/SunilKumar005/Invertible_Image_Compression"
+    },
+    {
       name: "Employee Records Management System",
-      description: "The ERMS is a handy Records Manager using tkinter in Python for Graphical User Interface and SQLite for Database Management . It is Built to Perform all the CRUB Operations in the Records while being offline.",
+      description: "The ERMS is a handy Records Manager using tkinter in Python for Graphical User Interface and SQLite for Database Management. It is Built to Perform all the CRUB Operations in the Records while being offline.",
       technologies: "Python,Tkinter,SQLite",
       link: "https://github.com/SunilKumar005/ERMS"
     },
@@ -51,7 +63,7 @@ const Project = ({ index, title, description }) => {
       link: "https://github.com/SunilKumar005/AnimeGen"
     }
   ];
-  function Image({ id }) {
+  function Image({ id,customHeight }) {
     const ref = useRef(null);
     const { scrollYProgress } = useScroll({ target: ref });
     const y = useParallax(scrollYProgress, 200);
@@ -60,7 +72,7 @@ const Project = ({ index, title, description }) => {
       <section>
         <div ref={ref}></div>
         <motion.h2 style={{ y }}>
-          <motion.img src={require(`./images/project${id + 1}.jpg`)} alt={`Project ${id + 1}`} style={styles.image} />
+          <motion.img src={require(`./images/project${id + 1}.jpg`)} alt={`Project ${id + 1}`} style={ {...styles.image,height:customHeight}} />
         </motion.h2>
       </section>
     );
@@ -69,14 +81,13 @@ const Project = ({ index, title, description }) => {
     <motion.div ref={ref} style={{ ...styles.achievement, ...(inView ? styles.visible : styles.hidden) }} variants={variants} initial="hidden" animate={inView ? 'visible' : 'hidden'}>
     <div key={index} style={{ ...styles.project, ...getProjectStyle(index) }}>
           <div style={styles.projectContent}>
-            <Image id={index} />
+            <Image id={index} customHeight={index === 0 || index === 1 ? '250px' : '300px'} />
             <div style={styles.details}>
               <h3 style={ styles.title}>{projects[index].name}</h3>
               <p style={styles.text}>{projects[index].description}</p>
               <p style={styles.text}>Technologies Used: {projects[index].technologies}</p>
               <a href={projects[index].link} style={styles.link}>View Project</a>
             </div>
-          
           </div>
         </div>
     </motion.div>
@@ -119,7 +130,7 @@ const styles = {
   },
   image: {
     width: 'auto',
-    height: '400px',
+    height: '300px',
     margin: '0 20px',
   },
   details: {
